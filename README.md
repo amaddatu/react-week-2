@@ -1,68 +1,37 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Conditional Render
 
-## Available Scripts
+In this activity we will render one of four different components based upon our component's state.
 
-In the project directory, you can run:
+## Instructions
 
-### `npm start`
+* Replace your application's `src` folder with [Unsolved/src](Unsolved/src). Stop the dev server if it is already running. Start the app in dev mode by running `npm start`.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* This application uses Bootstrap, so make sure you're including the Bootstrap CSS CDN.
+  
+  ```html
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"/>
+  ```
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+* Navigate to [localhost:3000](http://localhost:3000) in your web browser and take a moment to study the rendered application.
 
-### `npm test`
+  * At the top of the page there's a Bootstrap NavTabs component. Whenever a nav element is clicked, the nav element goes into an "active" state. Whenever a nav item is clicked, it sets `this.state.currentPage` inside of `PortfolioContainer` to the selected navigation item.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Now add code to `PortfolioContainer` so that depending on the currently selected page, a different component is rendered underneath the `NavTabs` component. Example:
 
-### `npm run build`
+  * Render the `About` component when `this.state.currentPage === "About"`
+  
+  * Render the `Blog` component when `this.state.currentPage === "Blog"`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  * Render the `Contact` component when `this.state.currentPage === "Contact"`
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+  * Render the `Home` component when `this.state.currentPage === "Home"`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Bonus
 
-### `npm run eject`
+* Inside of `src/components/NavTabs.js`, add code so that the `a` tag for the `currentPage` has the "active" class. This component receives the `currentPage` via props.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Hints
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Refer to [React's Documentation on Conditional Rendering](https://facebook.github.io/react/docs/conditional-rendering.html) if you get stuck.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* Consider defining a method which returns a different component based on the value of `this.state.currentPage`.

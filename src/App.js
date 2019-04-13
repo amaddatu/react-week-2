@@ -44,6 +44,21 @@ class App extends Component {
             </Fragment>
           )
         } />
+        {/*
+          our route will be begin with /search
+          but it might look like this with user input 
+          /search?q=something => "something"
+          or /search/something => "something"
+        */}
+        <Route path="/search/:query" render={
+          props => (
+            <Fragment>
+              <Nav {...props} />
+              <Search {...props} />
+            </Fragment>
+          )
+        } />
+        
       </Router>
     );
   }

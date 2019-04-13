@@ -15,14 +15,17 @@ class PortfolioContainer extends Component {
   };
 
   render() {
+    let page = this.state.currentPage;
     return (
       <div>
         <NavTabs
           currentPage={this.state.currentPage}
           handlePageChange={this.handlePageChange}
         />
-        Based on `this.state.currentPage`, render the appropriate component
-        here.
+        { page === "Blog" ? <Blog/> : "" }
+        { page === "Home" ? <Home/> : "" }
+        { page === "About" ? <About/> : "" }
+        { page === "Contact" ? <Contact/> : "" }
       </div>
     );
   }
